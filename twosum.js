@@ -1,21 +1,21 @@
 
 
+const twoSum = (arr, sum) => {
 
-function change (arr, sum) {
-
+  let pastNumbers = [];
   for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length; j++) {
-      console.log(arr[i], arr[j])
-        //  if(arr[i] + arr[j] === sum) {
-        //   return true
-        // }
-      }
-  
+    let current = arr[i];
+    let needed = sum - arr[i];
+    if (!pastNumbers.includes(needed)) {
+      pastNumbers.push(current);
+    } else {
+      return [needed, current];
+    }
+   
   }
-  return false
-  
-  
-  }
-  const arr = [1,2,3,4,5,6,7,8,9]
-  
-  console.log(change(arr, 6))
+
+  return "Not Found";
+};
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const sum = 9;
+console.log(twoSum(arr, sum));
